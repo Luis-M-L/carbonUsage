@@ -32,7 +32,7 @@ public class Scenario3 {
                 String fuel = ((HashMap<String, Object>) generationType).get("fuel").toString();
                 Object percentageObj = ((HashMap<String, Object>) generationType).get("perc");
                 Double percent = ((Number) percentageObj).doubleValue();
-                System.out.println(fuel +" "+ percent +" "+ regionName);
+
                 updateFiveHighest(fuel, percent, regionName);
             }
 
