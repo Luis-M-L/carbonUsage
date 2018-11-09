@@ -6,10 +6,10 @@ import org.apache.commons.logging.impl.SimpleLog;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static Utils.Constants.BASE_PATH;
 
 public class Scenario1 {
 
-    private static final String BASE_PATH = "http://api.carbonintensity.org.uk";
     public final SimpleLog log = new SimpleLog("Region name: forecast value");
 
     @Test
@@ -24,15 +24,9 @@ public class Scenario1 {
             JsonPath json = response.jsonPath();
 
             addForecastAndShortname(json, regId, forecasts, names);
-            // Double carbon;
-            // for(String generator: data[0].regions[0].generationmix){
-            //      if("coal".equals(generator.fuel)
-            //          sum += generator.perc
-            // ]
         }
         Collections.sort(forecasts, new Sorter());
         printOrderedForecasts(names, forecasts);
-        // assertEquals(100 == sum)
     }
 
     public void addForecastAndShortname(JsonPath json, int regId, ArrayList<ArrayList<Integer>> forecasts, ArrayList<String> names){
